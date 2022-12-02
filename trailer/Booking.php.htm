@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="Booking.php_files/jquery.css">
+<script src="Booking.php_files/jquery_002.js"></script>
+<script src="Booking.php_files/jquery.js"></script> 
+
+<script src="Booking.php_files/prompt.js"></script></head>
+<body>
+	<style>
+body {
+	font-family: 'Roboto', sans-serif;
+  background-color:#fafafa;
+}
+a {
+	color: #b71a4c;
+}
+.front-indicator {
+	width: 145px;
+	margin: 5px 32px 15px 32px;
+	background-color: #f6f6f6;	
+	color: #adadad;
+	text-align: center;
+	padding: 3px;
+	border-radius: 5px;
+}
+.wrapper {
+	width: 100%;
+	text-align: center;
+  margin-top:150px;
+}
+.container {
+	margin: 0 auto;
+	width: 500px;
+	text-align: left;
+}
+.booking-details {
+	float: left;
+	text-align: left;
+	margin-left: 35px;
+	font-size: 12px;
+	position: relative;
+	height: 401px;
+}
+.booking-details h2 {
+	margin: 25px 0 20px 0;
+	font-size: 17px;
+}
+.booking-details h3 {
+	margin: 5px 5px 0 0;
+	font-size: 14px;
+}
+div.seatCharts-cell {
+	color: #182C4E;
+	height: 25px;
+	width: 25px;
+	line-height: 25px;
+	
+}
+div.seatCharts-seat {
+	color: #FFFFFF;
+	cursor: pointer;	
+}
+div.seatCharts-row {
+	height: 35px;
+}
+div.seatCharts-seat.available {
+	background-color: #B9DEA0;
+
+}
+div.seatCharts-seat.available.first-class {
+/* 	background: url(vip.png); */
+	background-color: #3a78c3;
+}
+div.seatCharts-seat.focused {
+	background-color: #76B474;
+}
+div.seatCharts-seat.selected {
+	background-color: #E6CAC4;
+}
+div.seatCharts-seat.unavailable {
+	background-color: #472B34;
+}
+div.seatCharts-container {
+	border-right: 1px dotted #adadad;
+	width: 800px;
+	padding: 20px;
+	float: left;
+}
+div.seatCharts-legend {
+	padding-left: 0px;
+	position: absolute;
+	bottom: 16px;
+}
+ul.seatCharts-legendList {
+	padding-left: 0px;
+}
+span.seatCharts-legendDescription {
+	margin-left: 5px;
+	line-height: 30px;
+}
+.checkout-button {
+	display: block;
+	margin: 10px 0;
+	font-size: 14px;
+}
+#selected-seats {
+	max-height: 90px;
+	overflow-y: scroll;
+	overflow-x: none;
+	width: 170px;
+}
+</style>
+		<!-- <form action="Booking.php?CID=2& RNo=1& SNo=3"   method="POST">	 -->
+
+
+<script src="Booking.php_files/GoldenLotus1.js"></script>
+
+<div class="jquery-script-clear"></div>
+
+
+<div class="wrapper">
+  <div class="container">
+  <h1>Booking</h1>
+    <div id="seat-map" class="seatCharts-container" tabindex="0" aria-activedescendant="1_13">
+      <div class="front-indicator">Front</div>
+    <div class="seatCharts-row"><div class="seatCharts-cell seatCharts-space">1</div><div id="1_1" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell first-class unavailable">1</div><div id="1_2" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell first-class unavailable">2</div><div class="seatCharts-cell seatCharts-space"></div><div class="seatCharts-cell seatCharts-space"></div><div id="1_5" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell first-class available">3</div><div id="1_6" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell first-class available">4</div><div id="1_7" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell first-class available">5</div><div id="1_8" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">6</div><div id="1_9" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">7</div><div id="1_10" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">8</div><div id="1_11" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">9</div><div id="1_12" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">10</div><div id="1_13" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell first-class available">11</div><div id="1_14" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">12</div><div id="1_15" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">13</div><div id="1_16" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">14</div><div id="1_17" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">15</div><div id="1_18" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">16</div><div id="1_19" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">17</div><div id="1_20" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">18</div><div id="1_21" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">19</div><div id="1_22" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">20</div><div id="1_23" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">21</div><div id="1_24" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">22</div><div id="1_25" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">23</div><div id="1_26" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">24</div><div id="1_27" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">25</div><div id="1_28" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">26</div><div id="1_29" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">27</div><div id="1_30" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">28</div><div id="1_31" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">29</div><div id="1_32" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell first-class available">30</div><div id="1_33" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell first-class available">31</div><div id="1_34" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">32</div></div><div class="seatCharts-row"><div class="seatCharts-cell seatCharts-space">2</div><div id="2_1" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">33</div><div id="2_2" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">34</div><div class="seatCharts-cell seatCharts-space"></div><div class="seatCharts-cell seatCharts-space"></div><div id="2_5" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available first-class">35</div></div><div class="seatCharts-row"><div class="seatCharts-cell seatCharts-space">3</div><div id="3_1" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">36</div><div id="3_2" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">37</div><div class="seatCharts-cell seatCharts-space"></div><div class="seatCharts-cell seatCharts-space"></div><div id="3_5" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">38</div></div><div class="seatCharts-row"><div class="seatCharts-cell seatCharts-space">4</div><div id="4_1" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">39</div><div id="4_2" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">40</div><div class="seatCharts-cell seatCharts-space"></div><div id="4_4" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">41</div><div id="4_5" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">42</div></div><div class="seatCharts-row"><div class="seatCharts-cell seatCharts-space">5</div><div id="5_1" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">43</div><div id="5_2" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">44</div><div class="seatCharts-cell seatCharts-space"></div><div class="seatCharts-cell seatCharts-space"></div><div class="seatCharts-cell seatCharts-space"></div></div><div class="seatCharts-row"><div class="seatCharts-cell seatCharts-space">6</div><div id="6_1" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">45</div><div id="6_2" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">46</div><div class="seatCharts-cell seatCharts-space"></div><div id="6_4" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">47</div><div id="6_5" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">48</div></div><div class="seatCharts-row"><div class="seatCharts-cell seatCharts-space">7</div><div id="7_1" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">49</div><div id="7_2" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell economy-class unavailable">50</div><div class="seatCharts-cell seatCharts-space"></div><div id="7_4" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">51</div><div id="7_5" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">52</div></div><div class="seatCharts-row"><div class="seatCharts-cell seatCharts-space">8</div><div id="8_1" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">53</div><div id="8_2" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">54</div><div class="seatCharts-cell seatCharts-space"></div><div id="8_4" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">55</div><div id="8_5" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">56</div></div><div class="seatCharts-row"><div class="seatCharts-cell seatCharts-space">9</div><div id="9_1" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">57</div><div id="9_2" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell economy-class available">58</div><div id="9_3" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">59</div><div id="9_4" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell available economy-class">60</div><div id="9_5" role="checkbox" aria-checked="false" focusable="true" tabindex="-1" class="seatCharts-seat seatCharts-cell economy-class available">61</div></div></div>
+    <div class="booking-details">
+      <h2>Booking Details</h2>
+      <h3> Selected Seats (<span id="counter">0</span>):</h3>
+      <ul id="selected-seats">
+      </ul>
+      Total: <b>$<span id="total">0</span></b>
+      <button class="checkout-button">Checkout »</button>
+      <div id="legend" class="seatCharts-legend"><ul class="seatCharts-legendList"><li class="seatCharts-legendItem"><div class="seatCharts-seat seatCharts-cell available first-class"></div><span class="seatCharts-legendDescription">First Clss</span></li><li class="seatCharts-legendItem"><div class="seatCharts-seat seatCharts-cell available economy-class"></div><span class="seatCharts-legendDescription">Economy Class</span></li><li class="seatCharts-legendItem"><div class="seatCharts-seat seatCharts-cell unavailable first-class"></div><span class="seatCharts-legendDescription">Already Booked</span></li></ul></div>
+    </div>
+  </div>
+</div>
+
+
+	
+
+		<!-- 
+		<table>
+				<tr>
+					
+					<table> 
+							<br />
+<b>Warning</b>:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in <b>F:\web\htdocs\project\Booking.php</b> on line <b>266</b><br />
+						
+ 	
+ 
+
+
+
+			</table>
+
+ 			
+ 			<input type="submit" name="btnRegister" value="BookNow">
+ 					
+ 	
+ -->
+ 	<!-- <a href="MovieDisplay.php" style="font-size:18px">Home?</a> -->
+
+	
+		
+
+
+
+</body></html>
